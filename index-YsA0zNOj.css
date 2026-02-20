@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Fredoka', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Game Theme Colors - Vibrant & Fun */
+  --background: 250 30% 98%;
+  --foreground: 250 40% 20%;
+  
+  --primary: 260 80% 60%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 300 80% 65%;
+  --secondary-foreground: 0 0% 100%;
+  
+  --muted: 250 20% 92%;
+  --muted-foreground: 250 10% 50%;
+  
+  --accent: 35 90% 60%;
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 85% 65%;
+  --destructive-foreground: 0 0% 100%;
+
+  --success: 150 80% 40%;
+  --success-foreground: 0 0% 100%;
+
+  --border: 250 20% 88%;
+  --input: 250 20% 92%;
+  --ring: 260 80% 60%;
+  
+  --radius: 1rem;
+}
+
+.dark {
+  --background: 250 30% 12%;
+  --foreground: 250 20% 90%;
+  
+  --primary: 260 80% 70%;
+  --primary-foreground: 260 40% 10%;
+  
+  --secondary: 300 70% 60%;
+  --secondary-foreground: 300 40% 10%;
+  
+  --muted: 250 20% 20%;
+  --muted-foreground: 250 10% 60%;
+  
+  --accent: 35 90% 60%;
+  --accent-foreground: 35 40% 10%;
+  
+  --destructive: 0 70% 60%;
+  --destructive-foreground: 0 0% 100%;
+  
+  --success: 150 70% 50%;
+  --success-foreground: 150 40% 10%;
+
+  --border: 250 20% 25%;
+  --input: 250 20% 25%;
+  --ring: 260 60% 60%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+  }
+
+  .card-lift {
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  }
+  
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.15);
+  }
+
+  .game-button {
+    @apply relative overflow-hidden transition-all active:scale-95 shadow-md hover:shadow-lg hover:-translate-y-0.5;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50 transition-colors;
+}
